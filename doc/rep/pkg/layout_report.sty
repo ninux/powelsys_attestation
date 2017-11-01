@@ -1,0 +1,196 @@
+% coding:utf-8
+ 
+% Encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage{courier}
+
+\usepackage[toc,page]{appendix}
+\usepackage{shorttoc}
+\usepackage[font=small,labelfont={bf,it},textfont=it]{caption}
+
+% "Pre-Render" umlaut
+%\PrerenderUnicode{ä}
+%\PrerenderUnicode{ü}
+%\PrerenderUnicode{ö}
+
+\usepackage[table]{xcolor}
+\usepackage{rotate}
+
+% tables
+\usepackage{longtable}
+\usepackage{multirow}
+        % table coloring
+        \newenvironment{zebratabular}{\rowcolors{1}{lgray}{white}\tabular}{\endtabular}
+	\newenvironment{zebralongtable}{\rowcolors{1}{lgray}{white}\longtable}{\endlongtable}
+\usepackage{csvsimple}
+
+% language
+\usepackage[english,ngerman]{babel}
+%\usepackage[english]{babel}
+\usepackage{babelbib}
+\selectbiblanguage{ngerman}
+
+% graphics
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,positioning}
+\usepackage[european
+           ]{circuitikz}
+\usepackage{bchart}
+%\usepackage{pgf-pie}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{sidecap}
+%\usepackage{wrapfig}
+\usepackage{floatflt}
+\usepackage{float}
+
+\usepackage{acronym}
+
+\usepackage{pdflscape}
+
+% colors
+\usepackage{color}
+\usepackage{colortbl}
+\definecolor{gray}{gray}{0.749}
+\definecolor{lgray}{gray}{0.85}
+\definecolor{red}{rgb}{1, 0, 0}
+\definecolor{green}{rgb}{0, 1, 0}
+\definecolor{blue}{rgb}{0, 0, 1}
+
+% math in tables (spreadsheet alike)
+\usepackage{spreadtab}
+
+% hyperlinks 
+%\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{bookmark}
+% math
+\usepackage{amsmath}
+\usepackage[all]{xy}
+\usepackage{amssymb}
+
+% glossary
+\usepackage[xindy,toc,acronym]{glossaries}
+\usepackage{makeidx}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+% PDF managment
+\usepackage{pdfpages}
+
+% source code
+\definecolor{darkgreen}{rgb}{0,0.6,0}		% color definition
+\definecolor{lila}{RGB}{170,55,241}
+\usepackage{listings}
+\lstset{language=matlab}
+%\lstloadlanguages{C}				% language options
+\lstset{basicstyle=\ttfamily\footnotesize,			% fontstyle
+        numbers=left,				% linenumber placemnt
+        numberstyle=\tiny,			% linenumber fontsize
+        numbersep=5pt,				% 
+        breaklines=true,			% print linebreaks
+        %texcsstyle=\color{black},		% code color
+        %backgroundcolor=\color{gray!10},	% background color
+        commentstyle=\color{darkgreen},		% comment color
+        keywordstyle=\color{blue},		% keyword color
+	identifierstyle=\color{black},		% 
+        stringstyle=\color{lila},		% string color
+        %frame=single,				% frame
+        tabsize=8,				% tabstop
+        rulecolor=\color{black!30},		% 
+        title=\lstname,				% title is name of source file
+        %escapeinside={\%*}{*)},			% 
+        %breakatwhitespace=true,			% 
+        framextopmargin=2pt,			% 
+        framexbottommargin=2pt,			% 
+        inputencoding=utf8,			% encoding = utf8
+        extendedchars=true,			% 
+        literate={Ö}{{\"O}}1			% umlaute in code
+                 {Ä}{{\"A}}1			% 
+                 {Ü}{{\"U}}1			% 
+                 {ü}{{\"u}}1			% 
+                 {ä}{{\"a}}1			% 
+                 {ö}{{\"o}}1 }
+
+% 
+\usepackage{printlen}
+
+% commenting
+\usepackage{verbatim}
+
+% lorem ipsum and friends
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+% euro symbol
+\usepackage{eurosym}
+
+% Uhrzeit
+%\usepackage{uhrzeit}        % print the compile time
+
+% abbreviations
+\usepackage{acronym}
+
+% alphabetical lists/enumerations
+\usepackage{enumitem}
+
+% printing URLs
+\usepackage{url}
+
+% citation
+\usepackage{cite}
+%\usepackage{apacite}
+
+% header, foote and page-layout
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\let\MakeUppercase\relax
+
+\fancyhead[EL,OR]{\thepage}
+\fancyhead[ER]{\rightmark}
+\fancyhead[OL]{\leftmark}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{}
+
+\addtolength{\textwidth}{4cm}
+\addtolength{\evensidemargin}{-20mm}
+\addtolength{\oddsidemargin}{-20mm}
+
+%\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+\addtolength{\headwidth}{4cm}
+\addtolength{\headheight}{1cm}
+\addtolength{\textheight}{2.5cm}
+\addtolength{\voffset}{-2.5cm}
+
+%\renewcommand{\headrulewidth}{0.4pt}
+
+% pagedesign
+\usepackage{multicol}
+
+\addto\captionsngerman{\let\appendixtocname\appendixname%
+\let\appendixpagename\appendixname}
+
+% to-do marker
+\newcommand{\todo}[1]{
+	\textbf{\color{red!80!black}[TODO - #1]}
+}
+
+% define math symbols
+\newcommand*\MEAN[1]{\bar{#1}}
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\mean}[1]{\overline{#1}}
+\newcommand{\aprx}[1]{\widetilde{#1}}
+\newcommand{\dd}{\, \mathrm{d}}
+
+% include definitions
+\input{pkg/definitions}

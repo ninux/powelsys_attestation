@@ -1,0 +1,124 @@
+% https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3136027/
+\thispagestyle{empty}
+\begin{abstract}
+%------------------------------------------------------------------------------
+% Hintergrund
+%------------------------------------------------------------------------------
+%\todo{HINTERGRUND}
+% Was ist bereits bekannt zum Thema?
+%\todo{Was ist bereits bekannt zum Thema?}
+Der Einsatz von Batterien in Notstromversorgungen bedarf einer
+Diagnose, welche den Gesundheits- und Ladezustand der Batterie schätzt.
+Durch eine zuverlässige Diagnose der Batterie kann der korrekte Betrieb
+gewährleistet und die Lebensdauer der Batterie optimal genutzt werden.
+
+% Was ist noch unbekannt?
+%\todo{Was ist noch unbekannt?}
+Die vorliegende Arbeit untersucht, welche Verfahren sich für die Diagnose
+von Bleibatterien eignen, welche in der Notstromversorgung von Aufzugsanlagen
+eingesetzt werden.
+%
+% Was soll die Arbeit untersuchen?
+%\todo{Was soll die Arbeit untersuchen?}
+Die Arbeit soll zeigen, wie die bestehende Anwendung um ein
+Diagnosverfahren erweitert werden kann. Hierzu soll ein entsprechendes
+Diagnosesystem entworfen und als Prototyp in die bestehende Anwendung
+implementiert werden. Zusätzlich ist zu untersuchen, welche Massnahmen
+für den Einsatz und die Optimierung des Diagnosesystems vorzusehen sind.
+	
+%------------------------------------------------------------------------------
+% Methode 
+%------------------------------------------------------------------------------
+
+% Wie war das Vorgehen?
+%\todo{Wie war das vorgehen?}
+Nach Sichtung der relevanten Literatur wurden die Verfahren kategorisiert
+und bewertet. Dabei wurde für die vorliegende Anwendung der 2-Puls Lasttest
+als das am besten geeignete Verfahren identifiziert. Dieser wurde mittels
+Untersuchungen von Datenblattangaben und Labortests validiert. Ausgehend
+von einer Analyse des bestehenden Batteriemanagementsystems wurde ein
+neues Diagnosesystem entworfen. Dieses neue Diagnosesystem wurde als
+Prototyp in die bestehende Anwendung integriert und getestet.
+
+%
+% Welche Mittel sind verwendet worden?
+%\todo{Welche Mittel sind verwendet worden?}
+Für die Validierung wurde der 2-Puls Lasttest in einem Testsystem durchgeführt
+und mittels Ladungsmessungen überprüft.
+Hierbei wurden unterschiedliche Batterien eingesetzt, welche in der
+vorliegenden Anwendung verwendet werden.
+Die Tests am realisierten Prototypen erfolgten in einer reduzierten
+Installation, welche den realen Einsatz unter kontrollierten Bedingungen
+simuliert.
+	
+%	
+% Unter welchen Bedingungen ist untersucht worden?
+%\todo{Unter welchen Bedingungen ist untersucht worden?}
+%Die Validierung des 2-Puls Lasttest erfolgte in einer Temperaturkammer.
+%Dabei wurde der 2-Puls Lasttest mit unterschiedlichen C-Raten, Ladezuständen
+%und Temperaturen untersucht. Die Tests des Prototypen erfolgten in einem
+%Testraum und unter Einsatz einer gewählten C-Rate.
+	
+%------------------------------------------------------------------------------
+% Ergebnisse
+%------------------------------------------------------------------------------
+%\todo{ERGEBNISSE}
+Die durchgeführte Validierung zeigt, dass der Ladezustand und der Gesundheitszustand
+mit dem 2-Puls Lasttest geschätzt werden kann. Die hierzu notwendigen Modelle
+und Parameter konnten identifiziert werden. Optimale Schätzungen werden dabei mit
+Anwendung spezifischer Batteriemodelle erzielt. Die Schätzung des Gesundheitszustandes
+ist ausschliesslich bei vollgeladener Batterie zuverlässig und verbessert sich
+mit höheren Lastpulsen. Für den Einsatz des 2-Puls Lasttest wird ein Entwurf eines
+neuen Diagnosesystems vorgestellt und als Prototyp in die bestehende Anwendung
+realisiert. Die Tests des realisierten Prototypen zeigen, dass der 2-Puls Lasttest
+in der vorliegenden Anwendung integriert werden kann.
+
+
+%Die Untersuchungen zeigen, dass sich der 2-Puls Lasttest für die Diagnose von
+%Bleibatterien in Notstromversorgungen von Aufzugsanlagen eignet. Mit diesem
+%kann jederzeit der Ladezustand und während der Erhaltungsladung auch der
+%Gesundheitszustand der Batterie geschätzt werden. Für den Einsatz des
+%2-Puls Lasttest wird ein Diagnosesystem vorgestellt, welches in das
+%bestehende Batteriemanagementsystem integriert werden kann. Die Tests des
+%realisierten Prototypen belegen, dass der 2-Puls Lasttest in der besthenden
+%Anwendung realisiert werden kann.
+
+%------------------------------------------------------------------------------
+% Schlussfolgerung
+%------------------------------------------------------------------------------
+%\todo{SCHLUSSFOLGERUNGEN}
+Für die Diagnose von Batterien in Notstromversorgungen existiert kein
+Standardverfahren. Für die vorliegende Anwendungen bietet sich der 2-Puls
+Lasttest zur Diagnose der Batterien an. Dieser liefert innert 8
+Minuten eine Schätzung des Ladezustandes und des Gesundheitszustandes, ohne
+dabei die Verfügbarkeit der Notstromversorgung zu unterbrechen. Die
+Schätzung des Gesundheitszustandes erreicht dabei im Idealfall eine
+Genauigkeit von mindestens $\pm 15\%$.
+
+% Hauptergebnis
+%\todo{Hauptergebnis}
+%Der 2-Puls Lasttest eignet sich als Verfahren zur Schätzung des Ladezustandes
+%als auch des Gesundheitszutandes einer Batterie und kann in der
+%vorliegenden Anwendung umsetzt werden. Die Schätzung des Gesundheitszustandes
+%erzielt dabei unter idealen Bedingungen eine Genauigkeit von mindestens
+%$\pm15\%$.
+
+% Zusätzliche Feststellungen
+%\todo{Zusätzliche Feststellungen}
+
+% Perspektiven
+%\todo{Perspektiven}
+Der realisierte Prototyp des Diagnosesystems ist in zukünftigen
+Arbeiten fertigzustellen und einem Dauertest mit unterschiedlichen
+Batterien zu unterziehen. Weiter ist eine Strategie zu definieren,
+wie die Diagnose zu verwenden ist und wie die Schätzwerte
+weiterverarbeitet werden.
+
+%Die in der Arbeit dargelegten Ergebnisse sind durch weitere Untersuchungen
+%zu erweitern. Insbesondere ist das implementierte Diagnosesystem einer
+%langzeitlichen Untersuchung zu unterziehen, welche die verschiedenen
+%Betriebsszenarien der realen Anwendung überprüft. Ebenso sind weitere
+%Untersuchungen durchzuführen, welche die Anwendung des 2-Puls Lasttest
+%mit Batterien überprüft, welche einen Gesundheitszustand zwischen
+%neuwertigen und weit degradierten Batterien aufweisen.
+\end{abstract}

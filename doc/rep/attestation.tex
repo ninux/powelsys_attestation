@@ -1,0 +1,39 @@
+% base document setting
+\documentclass[a4,paper,12pt]{article}
+
+% load packages
+\usepackage{pkg/layout_report}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{filecontents}
+\usepackage{pkg/pgf-pie}
+
+% user defined macros
+\newcommand{\matA}{Kontrollprobe 1}
+\newcommand{\matB}{3D-Extreme (Acura)}
+\newcommand{\matC}{DSM XC1122}
+\newcommand{\matD}{PSILQSIP}
+\newcommand{\matE}{Kontrollprobe 2}
+
+% load glossary entries
+\input{gls/glossar}	% glossary
+\input{gls/acronyms}	% actronyms
+\makeglossaries
+
+\newcommand{\changefont}[3]{
+	\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont
+}
+
+
+% document
+\begin{document}
+
+	% change font
+	%\changefont{phv}{m}{n}		% helvetica
+	%\changefont{cmtt}{m}{sl}	% computer modern typewriter
+	%\changefont{cmss}{m}{n}	% computer modern sans serif
+
+	% input contents
+	\input{tex/contents}
+	
+\end{document}

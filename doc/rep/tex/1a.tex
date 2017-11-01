@@ -1,0 +1,45 @@
+\subsection{A - Assuming ideal output capacitor}
+To calculate the duty cycle we can use the volt-second balance.
+To do so, we have to evaluate the proper mathematical formulation
+for the active (first) and passive (second) interval.
+
+\paragraph{Active Interval}
+In the active interval the MOSFET is on. Since the inductance is
+connected to the negative terminal of the source the voltage across
+the inductance $L_1$ is the input voltage $V_i$. 
+\[ V_{L_{1}} = V_i \]
+
+\paragraph{Passive Interval}
+In the passive interval the diode $D$ is conducting the inductor
+current to the load and the output capacitor. The capacitor is assumed
+to be ideal, hence no output voltage ripple is assumed. Therefore, the
+voltage loop is defined as
+\[ V_i = V_{L_{2}} + V_o \]
+Using this loop we can obtain the inductors voltage for the passive
+interval as
+\[ V_{L_{2}} = V_i - V_o \]
+
+\paragraph{Volt-Second Balance}
+To calculate the duty cycle we can use the general volt-second balance
+equation
+\[ V_{L_{1}} D + V_{L_{2}} (1-D) = 0 \]
+and rearrange the equation so isolate the duty cycle $D$. Herefore
+we can expand the factors to
+\[ V_{L_{1}} D + V_{L_{2}} - V_{L_{2}} D = 0 \]
+and separate the sums
+\[ V_{L_{1}} D - V_{L_{2}} D = - V_{L_{2}} \]
+and factorize for
+\[ D (V_{L_{1}} - V_{L_{2}}) = V_{L_{2}} \]
+and finally isolate 
+\[ D = \frac{- V_{L_{2}}}{V_{L_{1}} - V_{L_{2}}} \]
+
+Using the previously obtained expressions for $V_{L_{1}}$ and
+$V_{L_{2}}$ we get
+\[  D = \frac{-(V_i - V_o)}{V_i - (V_i - V_o)} \]
+Expanding this expression leads to
+\[ D = \frac{- V_i + V_o}{V_i - V_i + V_o} = \frac{- V_i + V_o}{V_o} \]
+
+\paragraph{Results}
+\[ V_{i_{1}} = \SI{50}{\volt}  \Rightarrow D = \frac{- \SI{50}{\volt}  + \SI{200}{\volt}}{\SI{50}{\volt}}  =  \]
+\[ V_{i_{1}} = \SI{100}{\volt} \Rightarrow D = \frac{- \SI{100}{\volt} + \SI{200}{\volt}}{\SI{100}{\volt}} =  \]
+\[ V_{i_{1}} = \SI{150}{\volt} \Rightarrow D = \frac{- \SI{150}{\volt} + \SI{200}{\volt}}{\SI{150}{\volt}} =  \]
