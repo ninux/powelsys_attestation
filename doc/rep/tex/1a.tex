@@ -39,7 +39,14 @@ $V_{L_{2}}$ we get
 Expanding this expression leads to
 \[ D = \frac{- V_i + V_o}{V_i - V_i + V_o} = \frac{- V_i + V_o}{V_o} \]
 
+\paragraph{GNU Octave Code}
+
+\lstinputlisting{../../sim/boostduty.m}
+\lstinputlisting{../../sim/attestation.m}
+
 \paragraph{Results}
-\[ V_{i_{1}} = \SI{50}{\volt}  \Rightarrow D = \frac{- \SI{50}{\volt}  + \SI{200}{\volt}}{\SI{50}{\volt}}  =  \]
-\[ V_{i_{1}} = \SI{100}{\volt} \Rightarrow D = \frac{- \SI{100}{\volt} + \SI{200}{\volt}}{\SI{100}{\volt}} =  \]
-\[ V_{i_{1}} = \SI{150}{\volt} \Rightarrow D = \frac{- \SI{150}{\volt} + \SI{200}{\volt}}{\SI{150}{\volt}} =  \]
+\[ V_{i_{1}} = \SI{50}{\volt}  \Rightarrow D = \frac{- \SI{50}{\volt}  + \SI{200}{\volt}}{\SI{50}{\volt}}  = 0.75 \]
+\[ V_{i_{1}} = \SI{100}{\volt} \Rightarrow D = \frac{- \SI{100}{\volt} + \SI{200}{\volt}}{\SI{100}{\volt}} = 0.50 \]
+\[ V_{i_{1}} = \SI{150}{\volt} \Rightarrow D = \frac{- \SI{150}{\volt} + \SI{200}{\volt}}{\SI{150}{\volt}} = 0.25 \]
+
+
