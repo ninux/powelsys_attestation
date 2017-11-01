@@ -17,5 +17,5 @@ plt:
 	# $(MAKE) all -C $(PLT_DIR)
 
 sch:
-	# $(MAKE) all -C $(SCH_DIR)
+	$(MAKE) all -C $(SCH_DIR)
 
