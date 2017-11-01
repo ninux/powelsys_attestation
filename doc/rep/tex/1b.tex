@@ -1,1 +1,334 @@
-\subsection{B}
+\section{Power Stage Transfer Function}
+
+\subsection{Differential Equations}
+\subsubsection{First Interval}
+\[ 
+	V_L
+	= L \frac{d\,i_L(t)}{d\,t}
+\]
+\[
+	\frac{d\,i_L(t)}{d\,t}
+	= \frac{v_L(t)}{L}
+	= \frac{v_i(t)}{L}
+	\quad, v_L(t) = v_i(t)
+\]
+
+\[
+	i_C(t) 
+	= C \frac{d\,v_C(t)}{d\,t}
+\]
+\[
+	\frac{d\,v_C(t)}{d\,t}
+	= \frac{i_C(t)}{C}
+	= \frac{-i_O(t)}{C}
+	= \frac{-v_O(t)}{R C}
+	= \frac{-v_C(t)}{R C}
+\]
+\[
+	x' = A_1 x + B_1
+\]
+\[
+	%\begin{bmatrix}
+	%	\frac{d\,i_L(t)}{d\,t} \\
+	%	\frac{d\,v_C(t)}{d\,t}
+	%\end{bmatrix}
+	%=
+	\begin{bmatrix}
+		{i_L}' \\
+		{v_C}'
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 	& 0 \\
+		0	& \frac{1}{R C}
+	\end{bmatrix}
+	\cdot
+	\begin{bmatrix}
+		i_L \\
+		v_C
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		\frac{v_i}{L} \\
+		0
+	\end{bmatrix}
+\]
+
+\subsubsection{Second Interval}
+\[ 
+	V_L
+	= L \frac{d\,i_L(t)}{d\,t}
+\]
+\[
+	\frac{d\,i_L(t)}{d\,t}
+	= \frac{v_L(t)}{L}
+	= \frac{v_i(t) - v_o(t)}{L}
+	= \frac{v_i(t) - v_c(t)}{L}
+	\quad, v_o(t) = v_c(t)
+\]
+
+\[
+	i_C(t) 
+	= C \frac{d\,v_C(t)}{d\,t}
+\]
+\[
+	\frac{d\,v_C(t)}{d\,t}
+	= \frac{i_C(t)}{C}
+	= \frac{i_L(t) - \frac{v_C(t)}{R}}{C}
+	= \frac{i_L(t)}{C} - \frac{v_C(t)}{R C}
+\]
+\[
+	x'  = A_2 x + B_2
+\]
+\[
+	%\begin{bmatrix}
+	%	\frac{d\,i_L(t)}{d\,t} \\
+	%	\frac{d\,v_C(t)}{d\,t}
+	%\end{bmatrix}
+	%=
+	\begin{bmatrix}
+		{i_L}' \\
+		{v_C}'
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 		& \frac{-1}{L} \\
+		\frac{1}{C}	& \frac{-1}{R C}
+	\end{bmatrix}
+	\cdot
+	\begin{bmatrix}
+		i_L \\
+		v_C
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		\frac{v_i}{L} \\
+		0
+	\end{bmatrix}
+\]
+
+\subsection{Complete System Equation}
+
+\[
+	x' = \underbrace{(A_1 D + A_2 D')}_{A} x + \underbrace{B_1 D + B_2 D'}_{B} \quad, D + D' = 1
+\]
+
+\[
+	A
+	=
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & \frac{-1}{R C}
+	\end{bmatrix}
+	\cdot D
+	+
+	\begin{bmatrix}
+		0 		& \frac{-1}{L} \\
+		\frac{1}{C} 	& \frac{-1}{R C}
+	\end{bmatrix}
+	\cdot D'
+	= \mathrm{\todo{}}
+	=
+	\begin{bmatrix}
+		0		& \frac{-D'}{L} \\
+		\frac{D'}{C}	& \frac{-1}{R C}
+	\end{bmatrix}
+\]
+
+\[
+	B
+	= 
+	\begin{bmatrix}
+		\frac{v_i(t)}{L} \\
+		0
+	\end{bmatrix}
+	\cdot D
+	+
+	\begin{bmatrix}
+		\frac{v_i(t)}{L} \\
+		0
+	\end{bmatrix}
+	\cdot D'
+	= \mathrm{\todo{}}
+	=
+	\begin{bmatrix}
+		\frac{v_i(t)}{L} \\
+		0
+	\end{bmatrix}
+\]
+
+\subsection{Steady State Equation}
+
+\[ x' = 0 \]
+\[ 0 = AX + B \]
+\[ -AX = B \]
+\[ X = -\frac{1}{A}B \]
+\[ X = -A^{-1}B \]
+
+\[
+	X
+	=
+	\begin{bmatrix}
+		I_L \\
+		V_C
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\frac{v_i(t)}{D'^2 R} \\
+		\frac{v_i(t)}{D'}
+	\end{bmatrix}
+\]
+
+\[ V_O = F X \]
+\[
+	V_O
+	= 
+	\begin{bmatrix}
+		0 1
+	\end{bmatrix}
+	\cdot
+	\begin{bmatrix}
+		\frac{v_i(t)}{D'^2 R} \\
+		\frac{v_i(t)}{D'}
+	\end{bmatrix}
+\]
+\[
+	I_L
+	= \frac{V_i}{D'^2 R}
+	= \frac{V_i}{(1-D)^2 R}
+\]
+
+\subsection{Small Signal Pertubation}
+\[	E = (A_1 - A_2)X + B1 - B2 \]
+\[
+	E =
+	\begin{bmatrix}
+		0 & \frac{1}{L} \\
+		\frac{-1}{C} & 0
+	\end{bmatrix}
+	\cdot
+	\begin{bmatrix}
+		I_L \\
+		V_C
+	\end{bmatrix}
+	+ \underbrace{
+	\begin{bmatrix}
+		\frac{V_i}{L} \\
+		0
+	\end{bmatrix}
+	-
+	\begin{bmatrix}
+		\frac{V_i}{L} \\
+		0
+	\end{bmatrix}}_{0}
+	\quad, B_1 = B_2
+\]
+
+\[
+	\hat{V_O}(s) = F\hat{X}(s)
+\]
+
+\[
+	H(s)
+	= \frac{\hat{V_O}(s)}{\hat{D}(s)}
+	= F ( s I - A )^{-1} E
+\]
+
+\[
+	\frac{\hat{V_O}(s)}{\hat{D}(s)}
+	=
+	\begin{bmatrix}
+		0 1
+	\end{bmatrix}
+	\left( s 
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{bmatrix}
+	-
+	\begin{bmatrix}
+		0 & \frac{-D'}{L} \\
+		\frac{D'}{C} & \frac{-1}{R C}
+	\end{bmatrix}
+	\right)^{-1}
+	\begin{bmatrix}
+		\frac{V_C}{L} \\
+		\frac{-I_L}{C}
+	\end{bmatrix}
+\]
+
+\[
+	H(s) = \frac{V_O}{D'} \cdot \frac{1 - s\frac{L}{R D'^2}}{1 + s\frac{L}{R D'^2} + s^2\frac{L C}{D'^2}}
+\]
+
+\subsection{Bode-Plots}
+
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				xmode=log,
+				ymode=log,
+				log basis y=10,
+				yticklabel={\pgfmathparse{20*(\tick)}\pgfmathprintnumber[fixed]{\pgfmathresult}},
+				height=0.45\textwidth,
+				title=\textbf{Gain},
+				width=\linewidth,
+				grid=major,
+				grid style={dashed,gray!30},
+				xlabel={$\omega$},
+				ylabel={$G$},
+				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
+				legend style={at={(0.02,0.98)},anchor=north west},
+				x tick label style={rotate=90,anchor=east},
+				legend columns=1,
+				ymin=0,
+				ymax=10000,
+				xmin=0.1,
+				xmax=1000
+				]
+				\addplot+[mark=none] table[x=angfreq, y=magnitude, col sep=comma]{./../../data/h1.csv};
+				\addlegendentry{$H_1$};
+				\addplot+[mark=none] table[x=angfreq, y=magnitude, col sep=comma]{./../../data/h2.csv};
+				\addlegendentry{$H_2$};
+				\addplot+[mark=none] table[x=angfreq, y=magnitude, col sep=comma]{./../../data/h3.csv};
+				\addlegendentry{$H_3$};
+
+			\end{axis}
+		\end{tikzpicture}
+	\end{subfigure}
+
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				xmode=log,
+				ymode=linear,
+				height=0.45\textwidth,
+				title=\textbf{$H_1$ Phase},
+				width=\linewidth,
+				grid=major,
+				grid style={dashed,gray!30},
+				xlabel={$\omega$},
+				ylabel={$G$},
+				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
+				legend style={at={(0.02,0.98)},anchor=north west},
+				x tick label style={rotate=90,anchor=east},
+				legend columns=1,
+				ymin=-270,
+				ymax=90,
+				xmin=0.1,
+				xmax=1000
+				]
+				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/h1.csv};
+				\addlegendentry{$H_1$};
+				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/h2.csv};
+				\addlegendentry{$H_2$};
+				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/h3.csv};
+				\addlegendentry{$H_3$};
+
+			\end{axis}
+		\end{tikzpicture}
+	\end{subfigure}
+\end{figure}
