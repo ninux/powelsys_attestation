@@ -40,6 +40,45 @@ h2 = tf((vo/d2)*(1 - s*L/R/(1-d2)^2) / (1 + s*L/R/(1-d2)^2 + s^2*L*C/(1-d2)^2));
 h3 = tf((vo/d3)*(1 - s*L/R/(1-d3)^2) / (1 + s*L/R/(1-d3)^2 + s^2*L*C/(1-d3)^2));
 
 
+[mag1, pha1, angf1] = bode(h1);
+[mag2, pha2, angf2] = bode(h2, angf1);
+[mag3, pha3, angf3] = bode(h3, angf1);
+
+data = [mag1, pha1, angf1'];
+datapath = "./../data/";
+filename = "h1.csv";
+
+fid = fopen(strcat(datapath, filename), "wt");
+fprintf(fid, ...
+  "%s, %s, %s\n", ...
+  "magnitude", "phase", "angfreq");
+fclose(fid);
+
+dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
+
+data = [mag2, pha2, angf2'];
+datapath = "./../data/";
+filename = "h2.csv";
+
+fid = fopen(strcat(datapath, filename), "wt");
+fprintf(fid, ...
+  "%s, %s, %s\n", ...
+  "magnitude", "phase", "angfreq");
+fclose(fid);
+
+dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
+
+data = [mag3, pha3, angf3'];
+datapath = "./../data/";
+filename = "h3.csv";
+
+fid = fopen(strcat(datapath, filename), "wt");
+fprintf(fid, ...
+  "%s, %s, %s\n", ...
+  "magnitude", "phase", "angfreq");
+fclose(fid);
+
+dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
 
 % 1C
 fc = 1/10 * fs/2;
