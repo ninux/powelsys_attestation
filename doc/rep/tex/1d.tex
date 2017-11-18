@@ -22,8 +22,8 @@
 				legend style={at={(0.02,0.98)},anchor=north west},
 				x tick label style={rotate=90,anchor=east},
 				legend columns=1,
-				ymin=0,
-				ymax=10000,
+				ymin=0.001,
+				ymax=10,
 				xmin=\angflowerbound,
 				xmax=\angfupperbound
 				]
@@ -65,7 +65,47 @@
 				\addlegendentry{$H_2$};
 				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/go3.csv};
 				\addlegendentry{$H_3$};
+				\draw[red, dashed] (axis cs: 1000,-120) node[above right]{Phase Margin $\varphi_{R}$} -- (axis cs: 100000,-120);
+
 			\end{axis}
 		\end{tikzpicture}
 	\end{subfigure}
+\end{figure}
+
+
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				%xmode=log,
+				%ymode=log,
+				%log basis y=10,
+				%yticklabel={\pgfmathparse{20*(\tick)}\pgfmathprintnumber[fixed]{\pgfmathresult}},
+				height=0.9\textwidth,
+				title=\textbf{Gain},
+				width=\linewidth,
+				grid=major,
+				grid style={dashed,gray!30},
+				xlabel={$\omega$},
+				ylabel={$\left|G\right|$},
+				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
+				legend style={at={(0.98,0.02)},anchor=south east},
+				x tick label style={rotate=90,anchor=east},
+				legend columns=1,
+				ymin=-0.2,
+				ymax=1.2,
+				xmin=-0.001,
+				xmax=0.01
+				]
+				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step1.csv};
+				\addlegendentry{Duty = 0.75};
+				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step2.csv};
+				\addlegendentry{Duty = 0.50};
+				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step3.csv};
+				\addlegendentry{Duty = 0.25};
+			\end{axis}
+		\end{tikzpicture}
+	\end{subfigure}
+
 \end{figure}

@@ -284,7 +284,7 @@
 				legend style={at={(0.02,0.98)},anchor=north west},
 				x tick label style={rotate=90,anchor=east},
 				legend columns=1,
-				ymin=0,
+				ymin=1,
 				ymax=10000,
 				xmin=\angflowerbound,
 				xmax=\angfupperbound
@@ -327,7 +327,8 @@
 				\addlegendentry{$H_2$};
 				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/h3.csv};
 				\addlegendentry{$H_3$};
-				%\draw[red, dotted, thick] (\angflowerbound,\angfmargin) -- (\angfupperbound,\angfmargin);
+				%\draw[red, dotted, thick] (8,5) -- (9,200);
+				\draw[red, dashed] (axis cs: 1000,-120) node[above right]{Phase Margin $\varphi_{R}$} -- (axis cs: 100000,-120);
 			\end{axis}
 		\end{tikzpicture}
 	\end{subfigure}

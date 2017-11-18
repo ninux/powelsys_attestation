@@ -92,8 +92,8 @@ dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
 % 1C
 switch control
   case ctrl_pi
-    kp = 0.00010;
-    ki = 20e3;
+    kp = 0.00010; % 9E-6 
+    ki = 20e3;    % 200E3
     g = kp * (1 + ki/s);
   case ctrl_pit1
     g = 1;
@@ -142,5 +142,38 @@ filename = "go3.csv";
 
 fid = fopen(strcat(datapath, filename), "wt");
   fprintf(fid, "%s, %s, %s\n", "magnitude", "phase", "angfreq");
+fclose(fid);
+dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
+
+% plot the step answers
+tstep = [0:8E-6:10E-3];
+[Y1,T1,X1] = step( go1 / (1+go1), tstep);
+[Y2,T2,X2] = step( go2 / (1+go2), tstep);
+[Y3,T3,X3] = step( go3 / (1+go3), tstep);
+
+data = [T1,Y1];
+datapath = "./../data/";
+filename = "step1.csv";
+
+fid = fopen(strcat(datapath, filename), "wt");
+  fprintf(fid, "%s, %s\n", "time", "signal");
+fclose(fid);
+dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
+
+data = [T2,Y2];
+datapath = "./../data/";
+filename = "step2.csv";
+
+fid = fopen(strcat(datapath, filename), "wt");
+  fprintf(fid, "%s, %s\n", "time", "signal");
+fclose(fid);
+dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
+
+data = [T3,Y3];
+datapath = "./../data/";
+filename = "step3.csv";
+
+fid = fopen(strcat(datapath, filename), "wt");
+  fprintf(fid, "%s, %s\n", "time", "signal");
 fclose(fid);
 dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
