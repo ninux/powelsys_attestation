@@ -98,9 +98,9 @@ sympy-plots-for-*.tex/
 *.exe.stackdump
 
 # Output folder
-*/obj
-*/data
-*/octave-workspace
+obj
+data
+octave-workspace
 
 # octave packages
 *.tar.gz
