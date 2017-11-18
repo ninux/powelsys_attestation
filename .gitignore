@@ -99,7 +99,7 @@ sympy-plots-for-*.tex/
 
 # Output folder
 obj
-data
+*.csv
 octave-workspace
 
 # octave packages
