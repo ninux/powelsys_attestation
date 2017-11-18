@@ -1,105 +1,113 @@
 \thispagestyle{empty}
 \otherlanguage{english}
 \begin{abstract}
-%------------------------------------------------------------------------------
-% Hintergrund
-%------------------------------------------------------------------------------
-%\todo{HINTERGRUND}
-% Was ist bereits bekannt zum Thema?
-%\todo{Was ist bereits bekannt zum Thema?}
-The use of batteries in emergency supplies demands a diagnose which estimates
-the state of charge and state of health of the battery. The use of a reliable
-diagnosis of the battery can ensure the correct operation and optimal use of
-batteries' service life.
+	This report shows the individual solution of exercise 5.5 from the module
+	Power Electronic Systems (TSM\_PowElSys) which is neccessary for admission
+	to the final exam.
 
-% Was ist noch unbekannt?
-%\todo{Was ist noch unbekannt?}
-This study examines which methods are suitable for the diagnosis of
-lead-acid batteries used in emergency supplies of elevators.
-%
-% Was soll die Arbeit untersuchen?
-%\todo{Was soll die Arbeit untersuchen?}
-It aims to shows how the existing application can be extended with a
-method for diagnosis. Hence, a suitable diagnosis system is developed and
-implemented. Additionally, the study explores the requirements for the
-existing system. Furthermore, it aims to show which modifications and future
-work should be addressed for the application, along with a possible
-optimization of the diagnosis system.
-
-%------------------------------------------------------------------------------
-% Methode 
-%------------------------------------------------------------------------------
-
-% Wie war das Vorgehen?
-%\todo{Wie war das vorgehen?}
-After the exploration of relevant literature, existing methods were classified
-and rated. The 2-pulse load test was evaluated as the most suitable method to
-be applied. This method was validated through datasheet study of the batteries
-and laboratory tests. Based on the analysis of the existing battery management
-system, a new diagnosis system was developed. A prototype of this new diagnosis
-system has been developed, integrated, and tested in the existing application.
-
-%	
-% Welche Mittel sind verwendet worden?
-%\todo{Welche Mittel sind verwendet worden?}
-%Die Validierung des 2-Puls Lasttest erfolgte mit einem Testsystem, welches das
-%Verfahren auf unterschiedliche Batterietypen und mit unterschiedlichen
-%Testparametern durchführte.
-For the validation the 2-pulse load test was applied within a test installation
-and checked with coulomb counting measurements. The test was performed with
-different batteries which are used in the existing application. The test of the
-implemented prototype was performed on a reduced setup which simulates the use
-in the real application with controlled conditions.
-
-%	
-% Unter welchen Bedingungen ist untersucht worden?
-%\todo{Unter welchen Bedingungen ist untersucht worden?}
-%For the validation the 2-pulse load test was applied on different types of
-%batteries with multiple samples, different C-rates, multiple temperatures
-%and different state of charge of the batteries.
-%The validation was performed with
-
-%------------------------------------------------------------------------------
-% Ergebnisse
-%------------------------------------------------------------------------------
-%\todo{ERGEBNISSE}
-%The study shows that the 2-pulse load test is suitable for the diagnosis of
-%lead-acid batteries in emergency supplies of elevators and a diagnosis system
-%can be integrated in the existing applications.
-
-The validation shows that the state of charge and state of health can be
-estimated with the 2-pulse load test. The required models and parameters have
-been identified. Optimal estimations were observed with the use of specific
-battery models. The estimation of the state of health is only reliable for
-fully charged batteries and improves with higher load pulses.
-%
-For the use of the 2-pulse load test a new diagnosis system is introduced and
-a prototype integrated in the existing application. The tests of the implemented
-prototype shows that the 2-pulse load test can be integrated in the existing
-application.
-
-%------------------------------------------------------------------------------
-% Schlussfolgerung
-%------------------------------------------------------------------------------
-%\todo{SCHLUSSFOLGERUNGEN}
-There is no standard method for the diagnosis of batteries in emergency
-supplies. For these applications the 2-pulse load test is suitable as a
-method for the diagnosis of batteries. The test delivers an estimation of the
-state of charge and state of health of the battery within less than 8 minutes
-and without an interruption of the emergency supply availability. The state of
-health estimations reaches an accuracy of at least $\pm 15\%$ at ideal conditions.
-
-% Hauptergebnis
-%\todo{Hauptergebnis}
-
-% Zusätzliche Feststellungen
-%\todo{Zusätzliche Feststellungen}
-
-% Perspektiven
-%\todo{Perspektiven}
-The results presented in this study have to be extended with further
-investigations. Especially the implemented diagnosis system has to be tested
-for long time operation with different batteries. Further, a strategy has to
-be developed, how to use the diagnosis and how the estimations are processed.
+	The report shows how a controller can be designed for a simple boost
+	converter with ideal components. The power stage transfer function is
+	developed with the state space averaging method.
 \end{abstract}
-\otherlanguage{ngerman}
+%%------------------------------------------------------------------------------
+%% Hintergrund
+%%------------------------------------------------------------------------------
+%%\todo{HINTERGRUND}
+%% Was ist bereits bekannt zum Thema?
+%%\todo{Was ist bereits bekannt zum Thema?}
+%The use of batteries in emergency supplies demands a diagnose which estimates
+%the state of charge and state of health of the battery. The use of a reliable
+%diagnosis of the battery can ensure the correct operation and optimal use of
+%batteries' service life.
+%
+%% Was ist noch unbekannt?
+%%\todo{Was ist noch unbekannt?}
+%This study examines which methods are suitable for the diagnosis of
+%lead-acid batteries used in emergency supplies of elevators.
+%%
+%% Was soll die Arbeit untersuchen?
+%%\todo{Was soll die Arbeit untersuchen?}
+%It aims to shows how the existing application can be extended with a
+%method for diagnosis. Hence, a suitable diagnosis system is developed and
+%implemented. Additionally, the study explores the requirements for the
+%existing system. Furthermore, it aims to show which modifications and future
+%work should be addressed for the application, along with a possible
+%optimization of the diagnosis system.
+%
+%%------------------------------------------------------------------------------
+%% Methode 
+%%------------------------------------------------------------------------------
+%
+%% Wie war das Vorgehen?
+%%\todo{Wie war das vorgehen?}
+%After the exploration of relevant literature, existing methods were classified
+%and rated. The 2-pulse load test was evaluated as the most suitable method to
+%be applied. This method was validated through datasheet study of the batteries
+%and laboratory tests. Based on the analysis of the existing battery management
+%system, a new diagnosis system was developed. A prototype of this new diagnosis
+%system has been developed, integrated, and tested in the existing application.
+%
+%%	
+%% Welche Mittel sind verwendet worden?
+%%\todo{Welche Mittel sind verwendet worden?}
+%%Die Validierung des 2-Puls Lasttest erfolgte mit einem Testsystem, welches das
+%%Verfahren auf unterschiedliche Batterietypen und mit unterschiedlichen
+%%Testparametern durchführte.
+%For the validation the 2-pulse load test was applied within a test installation
+%and checked with coulomb counting measurements. The test was performed with
+%different batteries which are used in the existing application. The test of the
+%implemented prototype was performed on a reduced setup which simulates the use
+%in the real application with controlled conditions.
+%
+%%	
+%% Unter welchen Bedingungen ist untersucht worden?
+%%\todo{Unter welchen Bedingungen ist untersucht worden?}
+%%For the validation the 2-pulse load test was applied on different types of
+%%batteries with multiple samples, different C-rates, multiple temperatures
+%%and different state of charge of the batteries.
+%%The validation was performed with
+%
+%%------------------------------------------------------------------------------
+%% Ergebnisse
+%%------------------------------------------------------------------------------
+%%\todo{ERGEBNISSE}
+%%The study shows that the 2-pulse load test is suitable for the diagnosis of
+%%lead-acid batteries in emergency supplies of elevators and a diagnosis system
+%%can be integrated in the existing applications.
+%
+%The validation shows that the state of charge and state of health can be
+%estimated with the 2-pulse load test. The required models and parameters have
+%been identified. Optimal estimations were observed with the use of specific
+%battery models. The estimation of the state of health is only reliable for
+%fully charged batteries and improves with higher load pulses.
+%%
+%For the use of the 2-pulse load test a new diagnosis system is introduced and
+%a prototype integrated in the existing application. The tests of the implemented
+%prototype shows that the 2-pulse load test can be integrated in the existing
+%application.
+%
+%%------------------------------------------------------------------------------
+%% Schlussfolgerung
+%%------------------------------------------------------------------------------
+%%\todo{SCHLUSSFOLGERUNGEN}
+%There is no standard method for the diagnosis of batteries in emergency
+%supplies. For these applications the 2-pulse load test is suitable as a
+%method for the diagnosis of batteries. The test delivers an estimation of the
+%state of charge and state of health of the battery within less than 8 minutes
+%and without an interruption of the emergency supply availability. The state of
+%health estimations reaches an accuracy of at least $\pm 15\%$ at ideal conditions.
+%
+%% Hauptergebnis
+%%\todo{Hauptergebnis}
+%
+%% Zusätzliche Feststellungen
+%%\todo{Zusätzliche Feststellungen}
+%
+%% Perspektiven
+%%\todo{Perspektiven}
+%The results presented in this study have to be extended with further
+%investigations. Especially the implemented diagnosis system has to be tested
+%for long time operation with different batteries. Further, a strategy has to
+%be developed, how to use the diagnosis and how the estimations are processed.
+%\end{abstract}
+%\otherlanguage{ngerman}

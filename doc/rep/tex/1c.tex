@@ -1,0 +1,25 @@
+\section{Exercise C -- Controller Transfer Function}
+
+\subsection{Available Controller}
+
+\subsubsection{PI}
+
+\subsubsection{PIT1}
+\[
+	G
+	= -K_P \dfrac{
+		\left(1 + \dfrac{\omega_{1}}{s}\right)
+	}{ 
+		\left(1 + \dfrac{s}{\omega_{T}} \right)
+	}
+\]
+\subsubsection{PIDT2}
+
+\[
+	G
+	= -K_P \dfrac{
+		\left(1 + \dfrac{\omega_{i1}}{s}\right) \left(1 + \dfrac{\omega_{s}}{\omega_{i2}}\right)
+	}{ 
+		\left(1 + \dfrac{s}{\omega_{T2}} \right) \left(1 + \dfrac{s}{\omega_{T1}} \right)
+	}
+\]

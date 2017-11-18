@@ -1,4 +1,4 @@
-\section{Power Stage Transfer Function}
+\section{Exercise B -- Power Stage Transfer Function}
 
 \subsection{Differential Equations}
 \subsubsection{First Interval}
@@ -184,7 +184,7 @@
 	V_O
 	= 
 	\begin{bmatrix}
-		0 1
+		0 & 1
 	\end{bmatrix}
 	\cdot
 	\begin{bmatrix}
@@ -238,7 +238,7 @@
 	\frac{\hat{V_O}(s)}{\hat{D}(s)}
 	=
 	\begin{bmatrix}
-		0 1
+		0 & 1
 	\end{bmatrix}
 	\left( s 
 	\begin{bmatrix}
@@ -261,6 +261,7 @@
 	H(s) = \frac{V_O}{D'} \cdot \frac{1 - s\frac{L}{R D'^2}}{1 + s\frac{L}{R D'^2} + s^2\frac{L C}{D'^2}}
 \]
 
+\clearpage
 \subsection{Bode-Plots}
 
 \begin{figure}[h!]
@@ -278,15 +279,15 @@
 				grid=major,
 				grid style={dashed,gray!30},
 				xlabel={$\omega$},
-				ylabel={$G$},
+				ylabel={$\left|G\right|$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
 				legend style={at={(0.02,0.98)},anchor=north west},
 				x tick label style={rotate=90,anchor=east},
 				legend columns=1,
 				ymin=0,
 				ymax=10000,
-				xmin=0.1,
-				xmax=1000
+				xmin=\angflowerbound,
+				xmax=\angfupperbound
 				]
 				\addplot+[mark=none] table[x=angfreq, y=magnitude, col sep=comma]{./../../data/h1.csv};
 				\addlegendentry{$H_1$};
@@ -294,7 +295,6 @@
 				\addlegendentry{$H_2$};
 				\addplot+[mark=none] table[x=angfreq, y=magnitude, col sep=comma]{./../../data/h3.csv};
 				\addlegendentry{$H_3$};
-
 			\end{axis}
 		\end{tikzpicture}
 	\end{subfigure}
@@ -311,15 +311,15 @@
 				grid=major,
 				grid style={dashed,gray!30},
 				xlabel={$\omega$},
-				ylabel={$G$},
+				ylabel={$\varphi$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
 				legend style={at={(0.02,0.98)},anchor=north west},
 				x tick label style={rotate=90,anchor=east},
 				legend columns=1,
-				ymin=-270,
-				ymax=90,
-				xmin=0.1,
-				xmax=1000
+				ymin=\phaselowerbound,
+				ymax=\phaseupperbound,
+				xmin=\angflowerbound,
+				xmax=\angfupperbound
 				]
 				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/h1.csv};
 				\addlegendentry{$H_1$};
@@ -327,7 +327,7 @@
 				\addlegendentry{$H_2$};
 				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/h3.csv};
 				\addlegendentry{$H_3$};
-
+				%\draw[red, dotted, thick] (\angflowerbound,\angfmargin) -- (\angfupperbound,\angfmargin);
 			\end{axis}
 		\end{tikzpicture}
 	\end{subfigure}
