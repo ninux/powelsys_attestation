@@ -4,13 +4,13 @@
 
 \subsubsection{PI}
 \[
-	G
-	= K_p \left(1 + \dfrac{K_i}{s} \right)
+	G(s)
+	= K_p \left(1 + \dfrac{\omega_i}{s} \right)
 \]
 
 \subsubsection{PIT1}
 \[
-	G
+	G(s)
 	= K_p \dfrac{
 		\left(1 + \dfrac{\omega_{1}}{s}\right)
 	}{ 
@@ -20,7 +20,7 @@
 \subsubsection{PIDT2}
 
 \[
-	G
+	G(s)
 	= K_p \dfrac{
 		\left(1 + \dfrac{\omega_{i1}}{s}\right) \left(1 + \dfrac{\omega_{s}}{\omega_{i2}}\right)
 	}{ 
@@ -49,15 +49,13 @@ effect on the control.
 \subsection{Choosing the controller parameters}
 For a simple PI controller the parameters will be choosen empirically by
 inspecting the resulting open loop bode diagram and the step response of the
-closed loop.
-
-\subsubsection{Parameters of the control function}
-The empirically obtained parameters that work well are the following.
+closed loop. The empirically obtained parameters that work well are the following.
 
 \[ K_p = 0.0001 \]
-\[ K_i = 20000 \]
+\[ \omega_i = 20000 \]
 
-\subsubsection{Bode diagram of the control function}
+\clearpage
+\subsection{Bode diagram of the control function}
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.9\textwidth}
 		\centering
@@ -68,12 +66,12 @@ The empirically obtained parameters that work well are the following.
 				log basis y=10,
 				yticklabel={\pgfmathparse{20*(\tick)}\pgfmathprintnumber[fixed]{\pgfmathresult}},
 				height=0.45\textwidth,
-				title=\textbf{Gain},
+				title=\textbf{Controller Transfer Function -- Amplitude Response},
 				width=\linewidth,
 				grid=minor,
 				grid style={dashed,gray!30},
-				xlabel={$\omega$},
-				ylabel={$\left|G\right|$},
+				xlabel={angular frequency $\omega \left[\si{\per\second}\right]$},
+				ylabel={gain $\left|G\right| \left[\textrm{dB}\right]$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
 				legend style={at={(0.99,0.98)},anchor=north east},
 				x tick label style={rotate=90,anchor=east},
@@ -100,12 +98,12 @@ The empirically obtained parameters that work well are the following.
 				xmode=log,
 				ymode=linear,
 				height=0.45\textwidth,
-				title=\textbf{$H_1$ Phase},
+				title=\textbf{Controller Transfer Function -- Phase Response},
 				width=\linewidth,
 				grid=minor,
 				grid style={dashed,gray!30},
-				xlabel={$\omega$},
-				ylabel={$\varphi$},
+				xlabel={angular frequency $\omega \left[\si{\per\second}\right]$},
+				ylabel={phase $\varphi \left[\si{\degree}\right]$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
 				legend style={at={(0.99,0.98)},anchor=north east},
 				x tick label style={rotate=90,anchor=east},

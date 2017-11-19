@@ -19,12 +19,12 @@
 				log basis y=10,
 				yticklabel={\pgfmathparse{20*(\tick)}\pgfmathprintnumber[fixed]{\pgfmathresult}},
 				height=0.45\textwidth,
-				title=\textbf{Gain},
+				title=\textbf{Open Loop Transfer Function -- Amplitude Response},
 				width=\linewidth,
 				grid=minor,
 				grid style={dashed,gray!30},
-				xlabel={$\omega$},
-				ylabel={$\left|G\right|$},
+				xlabel={angular frequency $\omega \left[\si{\per\second}\right]$},
+				ylabel={gain $\left|G\right| \left[\textrm{dB}\right]$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
 				legend style={at={(0.99,0.98)},anchor=north east},
 				x tick label style={rotate=90,anchor=east},
@@ -51,12 +51,12 @@
 				xmode=log,
 				ymode=linear,
 				height=0.45\textwidth,
-				title=\textbf{$H_1$ Phase},
+				title=\textbf{Open Loop Transfer Function -- Phase Response},
 				width=\linewidth,
 				grid=minor,
 				grid style={dashed,gray!30},
-				xlabel={$\omega$},
-				ylabel={$\varphi$},
+				xlabel={angular frequency $\omega \left[\si{\per\second}\right]$},
+				ylabel={phase $\varphi \left[\si{\degree}\right]$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
 				legend style={at={(0.99,0.98)},anchor=north east},
 				x tick label style={rotate=90,anchor=east},
@@ -99,12 +99,12 @@
 				%log basis y=10,
 				%yticklabel={\pgfmathparse{20*(\tick)}\pgfmathprintnumber[fixed]{\pgfmathresult}},
 				height=0.9\textwidth,
-				title=\textbf{Gain},
+				title=\textbf{Closed Loop Step Response},
 				width=\linewidth,
 				grid=major,
 				grid style={dashed,gray!30},
-				xlabel={$\omega$},
-				ylabel={$\left|G\right|$},
+				xlabel={time $t \left[\si{\second}\right]$},
+				ylabel={amplitude $\left[\si{1}\right]$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
 				legend style={at={(0.98,0.02)},anchor=south east},
 				x tick label style={rotate=90,anchor=east},
@@ -115,11 +115,11 @@
 				xmax=0.01
 				]
 				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step1.csv};
-				\addlegendentry{Duty = 0.75};
+				\addlegendentry{D = 0.75};
 				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step2.csv};
-				\addlegendentry{Duty = 0.50};
+				\addlegendentry{D = 0.50};
 				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step3.csv};
-				\addlegendentry{Duty = 0.25};
+				\addlegendentry{D = 0.25};
 			\end{axis}
 		\end{tikzpicture}
 	\end{subfigure}
