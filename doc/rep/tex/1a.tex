@@ -1,6 +1,6 @@
 \section{Exercise A -- Steady State Duty Ratio}
 To calculate the duty cycle we can use the volt-second balance.
-To do so, we have to evaluate the proper mathematical formulation
+To do so, we have to evaluate the proper mathematical expressions
 for the active (first) and passive (second) interval.
 
 \begin{figure}[h!]
@@ -10,70 +10,90 @@ for the active (first) and passive (second) interval.
 	\caption{Complete booster circuit.}
 \end{figure}
 
-\subsection{First Interval}
-
 \begin{figure}[h!]
 	\centering
-	\def\svgscale{\schematicscale}
-	\input{../fig/sch/booster_first.pdf_tex}
-	\caption{Equivalent booster circuit for the first interval.}
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\def\svgscale{\schematicscale}
+		\input{../fig/sch/booster_first.pdf_tex}
+		\caption{First interval.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\def\svgscale{\schematicscale}
+		\input{../fig/sch/booster_second.pdf_tex}
+		\caption{Second interval.}
+	\end{subfigure}
+	\caption{Equivalent booster circuits for the first and second interval.}
 \end{figure}
 
-In the active interval the MOSFET is on. Since the inductance is
-connected to the negative terminal of the source the voltage across
-the inductance $L_1$ is the input voltage $V_i$. 
+
+\subsection{First Interval}
+In the active interval the MOSFET is on, hence, conducting the current.
+Since the inductance is connected to the negative terminal of the source,
+and assuming no voltage drop over the drain-source channel, the voltage
+across the inductance $L_1$ is defined by the input voltage $V_i$. 
+
 \[ V_{L_{1}} = V_i \]
 
+%\begin{figure}[h!]
+%	\centering
+%	\def\svgscale{\schematicscale}
+%	\input{../fig/sch/booster_first.pdf_tex}
+%	\caption{Equivalent booster circuit for the first interval.}
+%\end{figure}
+
 \subsection{Second Interval}
-
-\begin{figure}[h!]
-	\centering
-	\def\svgscale{\schematicscale}
-	\input{../fig/sch/booster_second.pdf_tex}
-	\caption{Equivalent booster circuit for the second interval.}
-\end{figure}
-
 In the passive interval the diode $D$ is conducting the inductor
 current to the load and the output capacitor. The capacitor is assumed
-to be ideal, hence no output voltage ripple is assumed. Therefore, the
+to be ideal, hence, no output voltage ripple is assumed. Therefore, the
 voltage loop is defined as
 \[ V_i = V_{L_{2}} + V_o \]
 Using this loop we can obtain the inductors voltage for the passive
 interval as
 \[ V_{L_{2}} = V_i - V_o \]
 
-\subsection{Volt-Second Balance}
-To calculate the duty cycle we can use the general volt-second balance
-equation
-\[ V_{L_{1}} D + V_{L_{2}} (1-D) = 0 \]
-and rearrange the equation so isolate the duty cycle $D$. Herefore
-we can expand the factors to
-\[ V_{L_{1}} D + V_{L_{2}} - V_{L_{2}} D = 0 \]
-and separate the sums
-\[ V_{L_{1}} D - V_{L_{2}} D = - V_{L_{2}} \]
-and factorize for
-\[ D (V_{L_{1}} - V_{L_{2}}) = V_{L_{2}} \]
-and finally isolate 
-\[ D = \frac{- V_{L_{2}}}{V_{L_{1}} - V_{L_{2}}} \]
+%\begin{figure}[h!]
+%	\centering
+%	\def\svgscale{\schematicscale}
+%	\input{../fig/sch/booster_second.pdf_tex}
+%	\caption{Equivalent booster circuit for the second interval.}
+%\end{figure}
 
-Using the previously obtained expressions for $V_{L_{1}}$ and
-$V_{L_{2}}$ we get
+\subsection{Volt-Second Balance}
+To calculate the duty cycle of the boost converter we can use the general
+volt-second balance equation
+\[ V_{L_{1}} D + V_{L_{2}} (1-D) = 0 \]
+By rearranging the equation, we can isolate the duty cycle $D$. To do so,
+we can expand the factors to get a sum at the left hand side of the equation
+\[ V_{L_{1}} D + V_{L_{2}} - V_{L_{2}} D = 0 \]
+By separation of the sums we can obtain an expression where the duty cycle $D$
+is on the left hand side of the equation
+\[ V_{L_{1}} D - V_{L_{2}} D = - V_{L_{2}} \]
+Now we can factorize the equation for the duty cycle $D$
+\[ D (V_{L_{1}} - V_{L_{2}}) = -V_{L_{2}} \]
+Finally we can isolate the duty cycle $D$ by a division of the second factor
+\[ D = \frac{- V_{L_{2}}}{V_{L_{1}} - V_{L_{2}}} \]
+Using the previously obtained expressions for the inductor voltages of the
+first interval $V_{L_{1}}$ and second interval $V_{L_{2}}$ we can express
+the duty cycle $D$ as a function of the input voltage $V_i$ and output voltage
+$V_o$
 \[  D = \frac{-(V_i - V_o)}{V_i - (V_i - V_o)} \]
-Expanding this expression leads to
+Expanding this expression leads to the reduced and final expression
 \[ D = \frac{- V_i + V_o}{V_i - V_i + V_o} = \frac{- V_i + V_o}{V_o} \]
 
 \subsection{Numerical Results}
 
-\subsubsection{By Hand}
+\subsubsection{By hand}
 \[ V_{i_{1}} = \SI{50}{\volt}  \Rightarrow D = \frac{- \SI{50}{\volt}  + \SI{200}{\volt}}{\SI{200}{\volt}}  = 0.75 \]
 \[ V_{i_{1}} = \SI{100}{\volt} \Rightarrow D = \frac{- \SI{100}{\volt} + \SI{200}{\volt}}{\SI{200}{\volt}} = 0.50 \]
 \[ V_{i_{1}} = \SI{150}{\volt} \Rightarrow D = \frac{- \SI{150}{\volt} + \SI{200}{\volt}}{\SI{200}{\volt}} = 0.25 \]
 
-\subsubsection{With GNU Octave}
+\subsubsection{By software}
 \lstinputlisting{../../data/duty.csv}
 
 %\clearpage
-%\subsection{GNU Octave Code}
-%\lstinputlisting{../../sim/boostduty.m}
+%\subsubsection{GNU Octave Code}
+\lstinputlisting{../../sim/boostduty.m}
 %\lstinputlisting{../../sim/attestation.m}
-%\clearpage
+\clearpage

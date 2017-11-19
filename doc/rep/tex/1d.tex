@@ -1,6 +1,13 @@
 \section{Exercise D -- Open Loop Transfer Function}
 
-\subsection{Bode-Plots}
+%\subsection{Bode-Plots}
+
+\begin{figure}[h!]
+	\centering
+	\def\svgscale{0.75}
+	\input{../fig/sch/control_loop_open_01.pdf_tex}
+	\caption{Open loop control diagram.}
+\end{figure}
 
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.9\textwidth}
@@ -14,12 +21,12 @@
 				height=0.45\textwidth,
 				title=\textbf{Gain},
 				width=\linewidth,
-				grid=major,
+				grid=minor,
 				grid style={dashed,gray!30},
 				xlabel={$\omega$},
 				ylabel={$\left|G\right|$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
-				legend style={at={(0.02,0.98)},anchor=north west},
+				legend style={at={(0.99,0.98)},anchor=north east},
 				x tick label style={rotate=90,anchor=east},
 				legend columns=1,
 				ymin=0.001,
@@ -46,12 +53,12 @@
 				height=0.45\textwidth,
 				title=\textbf{$H_1$ Phase},
 				width=\linewidth,
-				grid=major,
+				grid=minor,
 				grid style={dashed,gray!30},
 				xlabel={$\omega$},
 				ylabel={$\varphi$},
 				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
-				legend style={at={(0.02,0.98)},anchor=north west},
+				legend style={at={(0.99,0.98)},anchor=north east},
 				x tick label style={rotate=90,anchor=east},
 				legend columns=1,
 				ymin=\phaselowerbound,
@@ -65,13 +72,22 @@
 				\addlegendentry{$H_2$};
 				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/go3.csv};
 				\addlegendentry{$H_3$};
-				\draw[red, dashed] (axis cs: 1000,-120) node[above right]{Phase Margin $\varphi_{R}$} -- (axis cs: 100000,-120);
+				\draw[dashed] (axis cs: \angflowerbound,\angfmargin) node[below right]{$\varphi_{R}$ = \SI{-120}{\degree}} -- (axis cs: \angfupperbound,\angfmargin);
 
 			\end{axis}
 		\end{tikzpicture}
 	\end{subfigure}
 \end{figure}
 
+\clearpage
+\section{Addendum -- Closed Loop Behaviour}
+
+\begin{figure}[h!]
+	\centering
+	\def\svgscale{0.75}
+	\input{../fig/sch/control_loop_closed_01.pdf_tex}
+	\caption{Closed loop control diagram.}
+\end{figure}
 
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.9\textwidth}

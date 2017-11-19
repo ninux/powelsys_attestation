@@ -1,13 +1,17 @@
 \section{Exercise C -- Controller Transfer Function}
 
-\subsection{Available Controller}
+\subsection{Available controller functions}
 
 \subsubsection{PI}
+\[
+	G
+	= K_p \left(1 + \dfrac{K_i}{s} \right)
+\]
 
 \subsubsection{PIT1}
 \[
 	G
-	= -K_P \dfrac{
+	= K_p \dfrac{
 		\left(1 + \dfrac{\omega_{1}}{s}\right)
 	}{ 
 		\left(1 + \dfrac{s}{\omega_{T}} \right)
@@ -17,9 +21,109 @@
 
 \[
 	G
-	= -K_P \dfrac{
+	= K_p \dfrac{
 		\left(1 + \dfrac{\omega_{i1}}{s}\right) \left(1 + \dfrac{\omega_{s}}{\omega_{i2}}\right)
 	}{ 
 		\left(1 + \dfrac{s}{\omega_{T2}} \right) \left(1 + \dfrac{s}{\omega_{T1}} \right)
 	}
 \]
+
+\subsection{Selection of the controller type}
+Looking at the bode plot of the derived transfer function of the power stage
+we can see, that a simple PI controller is sufficient to get a stable system.
+
+Using the PI controller we can shift the gain down, so that the crossover
+frequency can be shifted to a lower frequency. The disadvantage of the PI
+controller is, that we'll have a worse starting angle of the phase near the
+phase margin of $\varphi_R$ = \SI{\angfmargin}{\degree}. Therefore, we have to
+shift the crossover frequency far below $\frac{f_s}{2}$ to achieve the specified
+phase margin. This will result in lower performance of the controller in terms of
+control speed.
+
+The use of a more complex controller, like a PIDT2 with differential behaviour,
+tends to be more difficult to implement. This is especially true when 
+discontinuous conduction or very high duty cycles have to be considered as well,
+where the transfer function changes or non-ideal circuitry has a significant
+effect on the control.
+
+\subsection{Choosing the controller parameters}
+For a simple PI controller the parameters will be choosen empirically by
+inspecting the resulting open loop bode diagram and the step response of the
+closed loop.
+
+\subsubsection{Parameters of the control function}
+The empirically obtained parameters that work well are the following.
+
+\[ K_p = 0.0001 \]
+\[ K_i = 20000 \]
+
+\subsubsection{Bode diagram of the control function}
+\begin{figure}[h!]
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				xmode=log,
+				ymode=log,
+				log basis y=10,
+				yticklabel={\pgfmathparse{20*(\tick)}\pgfmathprintnumber[fixed]{\pgfmathresult}},
+				height=0.45\textwidth,
+				title=\textbf{Gain},
+				width=\linewidth,
+				grid=minor,
+				grid style={dashed,gray!30},
+				xlabel={$\omega$},
+				ylabel={$\left|G\right|$},
+				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
+				legend style={at={(0.99,0.98)},anchor=north east},
+				x tick label style={rotate=90,anchor=east},
+				legend columns=1,
+				ymin=0.000001,
+				ymax=0.01,
+				xmin=\angflowerbound,
+				xmax=\angfupperbound
+				]
+				\addplot+[mark=none] table[x=angfreq, y=magnitude, col sep=comma]{./../../data/g.csv};
+				\addlegendentry{$H_1$};
+				\addplot+[mark=none] table[x=angfreq, y=magnitude, col sep=comma]{./../../data/g.csv};
+				\addlegendentry{$H_2$};
+				\addplot+[mark=none] table[x=angfreq, y=magnitude, col sep=comma]{./../../data/g.csv};
+				\addlegendentry{$H_3$};
+			\end{axis}
+		\end{tikzpicture}
+	\end{subfigure}
+
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}[
+				xmode=log,
+				ymode=linear,
+				height=0.45\textwidth,
+				title=\textbf{$H_1$ Phase},
+				width=\linewidth,
+				grid=minor,
+				grid style={dashed,gray!30},
+				xlabel={$\omega$},
+				ylabel={$\varphi$},
+				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
+				legend style={at={(0.99,0.98)},anchor=north east},
+				x tick label style={rotate=90,anchor=east},
+				legend columns=1,
+				ymin=\phaselowerbound,
+				ymax=\phaseupperbound,
+				xmin=\angflowerbound,
+				xmax=\angfupperbound
+				]
+				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/g.csv};
+				\addlegendentry{$H_1$};
+				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/g.csv};
+				\addlegendentry{$H_2$};
+				\addplot+[mark=none] table[x=angfreq, y=phase, col sep=comma]{./../../data/g.csv};
+				\addlegendentry{$H_3$};
+				\draw[dashed] (axis cs: \angflowerbound,\angfmargin) node[below right]{$\varphi_{R}$ = \SI{-120}{\degree}} -- (axis cs: \angfupperbound,\angfmargin);
+
+			\end{axis}
+		\end{tikzpicture}
+	\end{subfigure}
+\end{figure}
