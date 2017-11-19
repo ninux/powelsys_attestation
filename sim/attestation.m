@@ -30,6 +30,7 @@ ctrl_pidt2 = 3;   % PIDT2 Controller
 
 % controler selection
 control = ctrl_pi;
+%control = ctrl_pit1;
 %control = ctrl_pidt2;
 
 % 1A ---------------------------------------------------------------------------
@@ -96,20 +97,23 @@ dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
 % 1C
 switch control
   case ctrl_pi
-    kp = 0.00010; % 9E-6 
-    ki = 20e3;    % 200E3
-    g = kp * (1 + ki/s);
+    kp = 9E-6;    %0.00010; % 9E-6 
+    wi = 200E3;   %20E3;    % 200E3
+    g = kp * (1 + wi/s);
   case ctrl_pit1
-    g = 1;
+    kp = 0.00010;
+    wi = 20E3;
+    wt = 100E3;
+    g = kp * (1 + wi/s) / (1 + s/wt);
   case ctrl_pidt2
-    kp  = 0.0002;
-    wi1 = 1000;
-    wi2 = 3e3;
-    wt1 = 10e3;
-    wt2 = 30e3;
+    kp  = 1/500000;  %0.0002;
+    wi1 = 100;       %1000;
+    wi2 = 1E3;       %3e3;
+    wt1 = 100E3;     %10e3;
+    wt2 = 300E3;     %30e3;
     g   = kp * (1 + wi1/s) * (1 + s/wi2) / (1 + s/wt2) / (1 + s/wt1);
   otherwise
-    g   = 1;
+    g = 1;
 endswitch
 
 [mag1, pha1, angf1] = bode(g, angf);
@@ -166,7 +170,7 @@ tstep = [0:8E-6:10E-3];
 [Y2,T2,X2] = step( go2 / (1+go2), tstep);
 [Y3,T3,X3] = step( go3 / (1+go3), tstep);
 
-data = [T1,Y1];
+data = [T1*1E3,Y1];
 datapath = "./../data/";
 filename = "step1.csv";
 
@@ -175,7 +179,7 @@ fid = fopen(strcat(datapath, filename), "wt");
 fclose(fid);
 dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
 
-data = [T2,Y2];
+data = [T2*1E3,Y2];
 datapath = "./../data/";
 filename = "step2.csv";
 
@@ -184,7 +188,7 @@ fid = fopen(strcat(datapath, filename), "wt");
 fclose(fid);
 dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
 
-data = [T3,Y3];
+data = [T3*1E3,Y3];
 datapath = "./../data/";
 filename = "step3.csv";
 
