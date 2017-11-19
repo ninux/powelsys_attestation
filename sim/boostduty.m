@@ -24,6 +24,6 @@ function d = boostduty(vo, vi)
     case 1
       d = (-1 + vo) / (vo);
     otherwise
-      d = -1;
+      error('wrong number of input arguments');
   endswitch
 endfunction

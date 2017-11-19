@@ -54,9 +54,13 @@ fclose(fid);
 
 % 1B ---------------------------------------------------------------------------
 s  = tf('s');
-h1 = tf((vo/(1-d1))*(1-s*L/R/(1-d1)^2)/(1+s*L/R/(1-d1)^2 + s^2*L*C/(1-d1)^2));
-h2 = tf((vo/(1-d2))*(1-s*L/R/(1-d2)^2)/(1+s*L/R/(1-d2)^2 + s^2*L*C/(1-d2)^2));
-h3 = tf((vo/(1-d3))*(1-s*L/R/(1-d3)^2)/(1+s*L/R/(1-d3)^2 + s^2*L*C/(1-d3)^2));
+h1 = boosttf(vo,R,L,C,d1);
+h2 = boosttf(vo,R,L,C,d2);
+h3 = boosttf(vo,R,L,C,d3);
+
+%h1 = tf((vo/(1-d1))*(1-s*L/R/(1-d1)^2)/(1+s*L/R/(1-d1)^2 + s^2*L*C/(1-d1)^2));
+%h2 = tf((vo/(1-d2))*(1-s*L/R/(1-d2)^2)/(1+s*L/R/(1-d2)^2 + s^2*L*C/(1-d2)^2));
+%h3 = tf((vo/(1-d3))*(1-s*L/R/(1-d3)^2)/(1+s*L/R/(1-d3)^2 + s^2*L*C/(1-d3)^2));
 
 [mag1, pha1, angf1] = bode(h1, angf);
 [mag2, pha2, angf2] = bode(h2, angf1);
@@ -107,6 +111,17 @@ switch control
   otherwise
     g   = 1;
 endswitch
+
+[mag1, pha1, angf1] = bode(g, angf);
+
+data = [mag1, pha1, angf1'];
+datapath = "./../data/";
+filename = "g.csv";
+
+fid = fopen(strcat(datapath, filename), "wt");
+  fprintf(fid, "%s, %s, %s\n", "magnitude", "phase", "angfreq");
+fclose(fid);
+dlmwrite(strcat(datapath, filename), data, ",", "-append", "precision", 6);
 
 % 1D
 
