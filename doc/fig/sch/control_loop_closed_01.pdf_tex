@@ -1,0 +1,64 @@
+%% Creator: Inkscape inkscape 0.92.2, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'control_loop_closed_01.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{398.3283677bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.21469275)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{./../fig/sch/control_loop_closed_01.pdf}}%
+    \put(0.35581776,0.12903578){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$G(s)$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{./../fig/sch/control_loop_closed_01.pdf}}%
+    \put(0.64047183,0.12903578){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$H(s)$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{./../fig/sch/control_loop_closed_01.pdf}}%
+    \put(0.15655976,0.08633768){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$}}}%
+    \put(0.10674526,0.16461758){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$+$}}}%
+    \put(0.35581764,0.19308297){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{controller}}}%
+    \put(0.64047183,0.19308297){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{power stage}}}%
+    \put(0.49814474,0.01517414){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{feedback}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{./../fig/sch/control_loop_closed_01.pdf}}%
+  \end{picture}%
+\endgroup%
