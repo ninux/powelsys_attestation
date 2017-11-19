@@ -1,4 +1,4 @@
-\section{Exercise A -- Steady State Duty Ratio}
+%\section{Exercise A -- Steady State Duty Ratio}
 To calculate the duty cycle we can use the volt-second balance.
 To do so, we have to evaluate the proper mathematical expressions
 for the active (first) and passive (second) interval.
@@ -28,7 +28,7 @@ for the active (first) and passive (second) interval.
 \end{figure}
 
 
-\subsection{First Interval}
+\section{First Interval}
 In the active interval the MOSFET is on, hence, conducting the current.
 Since the inductance is connected to the negative terminal of the source,
 and assuming no voltage drop over the drain-source channel, the voltage
@@ -43,7 +43,7 @@ across the inductance $L_1$ is defined by the input voltage $V_i$.
 %	\caption{Equivalent booster circuit for the first interval.}
 %\end{figure}
 
-\subsection{Second Interval}
+\section{Second Interval}
 In the passive interval the diode $D$ is conducting the inductor
 current to the load and the output capacitor. The capacitor is assumed
 to be ideal, hence, no output voltage ripple is assumed. Therefore, the
@@ -60,7 +60,7 @@ interval as
 %	\caption{Equivalent booster circuit for the second interval.}
 %\end{figure}
 
-\subsection{Volt-Second Balance}
+\section{Volt-Second Balance}
 To calculate the duty cycle of the boost converter we can use the general
 volt-second balance equation
 \[ V_{L_{1}} D + V_{L_{2}} (1-D) = 0 \]
@@ -82,18 +82,18 @@ $V_o$
 Expanding this expression leads to the reduced and final expression
 \[ D = \frac{- V_i + V_o}{V_i - V_i + V_o} = \frac{- V_i + V_o}{V_o} \]
 
-\subsection{Numerical Results}
+\section{Numerical Results}
 
-\subsubsection{By hand}
+\subsection{By hand}
 \[ V_{i_{1}} = \SI{50}{\volt}  \Rightarrow D = \frac{- \SI{50}{\volt}  + \SI{200}{\volt}}{\SI{200}{\volt}}  = 0.75 \]
 \[ V_{i_{1}} = \SI{100}{\volt} \Rightarrow D = \frac{- \SI{100}{\volt} + \SI{200}{\volt}}{\SI{200}{\volt}} = 0.50 \]
 \[ V_{i_{1}} = \SI{150}{\volt} \Rightarrow D = \frac{- \SI{150}{\volt} + \SI{200}{\volt}}{\SI{200}{\volt}} = 0.25 \]
 
-\subsubsection{By software}
+\subsection{By software}
 \lstinputlisting{../../data/duty.csv}
 
 %\clearpage
-%\subsubsection{GNU Octave Code}
+%\subsection{GNU Octave Code}
 \lstinputlisting{../../sim/boostduty.m}
 %\lstinputlisting{../../sim/attestation.m}
 \clearpage

@@ -1,6 +1,6 @@
-\section{Exercise D -- Open Loop Transfer Function}
+%\section{Exercise D -- Open Loop Transfer Function}
 
-%\subsection{Bode-Plots}
+%\section{Bode-Plots}
 
 \begin{figure}[h!]
 	\centering
@@ -79,49 +79,49 @@
 	\end{subfigure}
 \end{figure}
 
-\clearpage
-\section{Addendum -- Closed Loop Behaviour}
-
-\begin{figure}[h!]
-	\centering
-	\def\svgscale{0.75}
-	\input{../fig/sch/control_loop_closed_01.pdf_tex}
-	\caption{Closed loop control diagram.}
-\end{figure}
-
-\begin{figure}[h!]
-	\begin{subfigure}[b]{0.9\textwidth}
-		\centering
-		\begin{tikzpicture}
-			\begin{axis}[
-				%xmode=log,
-				%ymode=log,
-				%log basis y=10,
-				%yticklabel={\pgfmathparse{20*(\tick)}\pgfmathprintnumber[fixed]{\pgfmathresult}},
-				height=0.9\textwidth,
-				title=\textbf{Closed Loop Step Response},
-				width=\linewidth,
-				grid=major,
-				grid style={dashed,gray!30},
-				xlabel={time $t \left[\si{\second}\right]$},
-				ylabel={amplitude $\left[\si{1}\right]$},
-				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
-				legend style={at={(0.98,0.02)},anchor=south east},
-				x tick label style={rotate=90,anchor=east},
-				legend columns=1,
-				ymin=-0.2,
-				ymax=1.2,
-				xmin=-0.001,
-				xmax=0.01
-				]
-				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step1.csv};
-				\addlegendentry{D = 0.75};
-				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step2.csv};
-				\addlegendentry{D = 0.50};
-				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step3.csv};
-				\addlegendentry{D = 0.25};
-			\end{axis}
-		\end{tikzpicture}
-	\end{subfigure}
-
-\end{figure}
+%\clearpage
+%\section{Addendum -- Closed Loop Behaviour}
+%
+%\begin{figure}[h!]
+%	\centering
+%	\def\svgscale{0.75}
+%	\input{../fig/sch/control_loop_closed_01.pdf_tex}
+%	\caption{Closed loop control diagram.}
+%\end{figure}
+%
+%\begin{figure}[h!]
+%	\begin{subfigure}[b]{0.9\textwidth}
+%		\centering
+%		\begin{tikzpicture}
+%			\begin{axis}[
+%				%xmode=log,
+%				%ymode=log,
+%				%log basis y=10,
+%				%yticklabel={\pgfmathparse{20*(\tick)}\pgfmathprintnumber[fixed]{\pgfmathresult}},
+%				height=0.9\textwidth,
+%				title=\textbf{Closed Loop Step Response},
+%				width=\linewidth,
+%				grid=major,
+%				grid style={dashed,gray!30},
+%				xlabel={time $t \left[\si{\second}\right]$},
+%				ylabel={amplitude $\left[\si{1}\right]$},
+%				x label style={at={(axis description cs:0.5,-0.075)},anchor=north},
+%				legend style={at={(0.98,0.02)},anchor=south east},
+%				x tick label style={rotate=90,anchor=east},
+%				legend columns=1,
+%				ymin=-0.2,
+%				ymax=1.2,
+%				xmin=-0.001,
+%				xmax=0.01
+%				]
+%				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step1.csv};
+%				\addlegendentry{D = 0.75};
+%				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step2.csv};
+%				\addlegendentry{D = 0.50};
+%				\addplot+[mark=none] table[x=time, y=signal, col sep=comma]{./../../data/step3.csv};
+%				\addlegendentry{D = 0.25};
+%			\end{axis}
+%		\end{tikzpicture}
+%	\end{subfigure}
+%
+%\end{figure}

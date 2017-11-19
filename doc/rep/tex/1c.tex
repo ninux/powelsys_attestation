@@ -1,14 +1,14 @@
-\section{Exercise C -- Controller Transfer Function}
+%\section{Exercise C -- Controller Transfer Function}
 
-\subsection{Available controller functions}
+\section{Available controller functions}
 
-\subsubsection{PI}
+\subsection{PI}
 \[
 	G(s)
 	= K_p \left(1 + \dfrac{\omega_i}{s} \right)
 \]
 
-\subsubsection{PIT1}
+\subsection{PIT1}
 \[
 	G(s)
 	= K_p \dfrac{
@@ -17,7 +17,7 @@
 		\left(1 + \dfrac{s}{\omega_{T}} \right)
 	}
 \]
-\subsubsection{PIDT2}
+\subsection{PIDT2}
 
 \[
 	G(s)
@@ -28,7 +28,7 @@
 	}
 \]
 
-\subsection{Selection of the controller type}
+\section{Selection of the controller type}
 Looking at the bode plot of the derived transfer function of the power stage
 we can see, that a simple PI controller is sufficient to get a stable system.
 
@@ -46,7 +46,7 @@ discontinuous conduction or very high duty cycles have to be considered as well,
 where the transfer function changes or non-ideal circuitry has a significant
 effect on the control.
 
-\subsection{Choosing the controller parameters}
+\section{Choosing the controller parameters}
 For a simple PI controller the parameters will be choosen empirically by
 inspecting the resulting open loop bode diagram and the step response of the
 closed loop. The empirically obtained parameters that work well are the following.
@@ -55,7 +55,7 @@ closed loop. The empirically obtained parameters that work well are the followin
 \[ \omega_i = 20000 \]
 
 \clearpage
-\subsection{Bode diagram of the control function}
+\section{Bode diagram of the control function}
 \begin{figure}[h!]
 	\begin{subfigure}[b]{0.9\textwidth}
 		\centering
