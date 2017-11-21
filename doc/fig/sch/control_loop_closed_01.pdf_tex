@@ -54,7 +54,7 @@
     \put(0,0){\includegraphics[width=\unitlength,page=2]{./../fig/sch/control_loop_closed_01.pdf}}%
     \put(0.64047183,0.12903578){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$H(s)$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{./../fig/sch/control_loop_closed_01.pdf}}%
-    \put(0.15655976,0.08633768){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$}}}%
+    \put(0.17079245,0.08633768){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$-$}}}%
     \put(0.10674526,0.16461758){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$+$}}}%
     \put(0.35581764,0.19308297){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{controller}}}%
     \put(0.64047183,0.19308297){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{power stage}}}%

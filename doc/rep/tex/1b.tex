@@ -1,9 +1,18 @@
 %\section{Exercise B -- Power Stage Transfer Function}
 
 \section{Differential Equations}
+To evaluate the system matrices we have to find expressions for the state
+variables, which represent the stored energy. These will be separately
+defined for the first (active) and second (passive) interval of the
+boost converter. Since the boost converter has two energy storages,
+an inductor and a capacitor, we have to find expressions for both of
+them for both of the intervals.
+
 \subsection{First Interval}
+
+\subsubsection{Inductor energy}
 \[ 
-	V_L
+	v_L(t)
 	= L \frac{d\,i_L(t)}{d\,t}
 \]
 \[
@@ -13,6 +22,7 @@
 	\quad, v_L(t) = v_i(t)
 \]
 
+\subsubsection{Capacitor energy}
 \[
 	i_C(t) 
 	= C \frac{d\,v_C(t)}{d\,t}
@@ -24,6 +34,8 @@
 	= \frac{-v_O(t)}{R C}
 	= \frac{-v_C(t)}{R C}
 \]
+
+\subsubsection{System matrix}
 \[
 	x' = A_1 x + B_1
 \]
@@ -55,8 +67,10 @@
 \]
 
 \subsection{Second Interval}
+
+\subsubsection{Inductor energy}
 \[ 
-	V_L
+	v_L(t)
 	= L \frac{d\,i_L(t)}{d\,t}
 \]
 \[
@@ -67,6 +81,7 @@
 	\quad, v_o(t) = v_c(t)
 \]
 
+\subsubsection{Capacitor energy}
 \[
 	i_C(t) 
 	= C \frac{d\,v_C(t)}{d\,t}
@@ -77,6 +92,8 @@
 	= \frac{i_L(t) - \frac{v_C(t)}{R}}{C}
 	= \frac{i_L(t)}{C} - \frac{v_C(t)}{R C}
 \]
+
+\subsubsection{System matrix}
 \[
 	x'  = A_2 x + B_2
 \]
@@ -113,6 +130,7 @@
 	x' = \underbrace{(A_1 D + A_2 D')}_{A} x + \underbrace{B_1 D + B_2 D'}_{B} \quad, D + D' = 1
 \]
 
+\subsection{System matrix}
 \[
 	A
 	=
@@ -127,7 +145,21 @@
 		\frac{1}{C} 	& \frac{-1}{R C}
 	\end{bmatrix}
 	\cdot D'
-	= \mathrm{\todo{}}
+	=
+	\begin{bmatrix}
+		0		& 0 \\
+		0		& \frac{-D}{R C}
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		0		& \frac{-D'}{L} \\
+		\frac{D'}{C}	& \frac{-D'}{R C}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0		& \frac{-D'}{C} \\
+		\frac{D'}{C}	& \frac{-D-D'}{R C}
+	\end{bmatrix}
 	=
 	\begin{bmatrix}
 		0		& \frac{-D'}{L} \\
@@ -135,6 +167,7 @@
 	\end{bmatrix}
 \]
 
+\subsection{Source vector}
 \[
 	B
 	= 
@@ -149,7 +182,31 @@
 		0
 	\end{bmatrix}
 	\cdot D'
-	= \mathrm{\todo{}}
+	=
+	\begin{bmatrix}
+		\frac{V_i D}{L} \\
+		0
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		\frac{V_i D'}{L} \\
+		0
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\frac{V_i D + V_i D'}{L} \\
+		0
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\frac{V_i(D+D'}{L} \\
+		0
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\frac{V_i(D + 1 - D}{L} \\
+		0
+	\end{bmatrix}
 	=
 	\begin{bmatrix}
 		\frac{v_i(t)}{L} \\
@@ -255,6 +312,10 @@
 		\frac{V_C}{L} \\
 		\frac{-I_L}{C}
 	\end{bmatrix}
+\]
+
+\[
+	H(s) = \frac{-R(L I_L s - D' V_C)}{R(C L s^2 + D'^2) + L s}
 \]
 
 \[

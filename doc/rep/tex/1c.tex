@@ -35,16 +35,17 @@ we can see, that a simple PI controller is sufficient to get a stable system.
 Using the PI controller we can shift the gain down, so that the crossover
 frequency can be shifted to a lower frequency. The disadvantage of the PI
 controller is, that we'll have a worse starting angle of the phase near the
-phase margin of $\varphi_R$ = \SI{\angfmargin}{\degree}. Therefore, we have to
-shift the crossover frequency far below $\frac{f_s}{2}$ to achieve the specified
-phase margin. This will result in lower performance of the controller in terms of
-control speed.
+phase margin of $\varphi_R$ = \SI{\angfmargin}{\degree}, since the I part
+introduces a \SI{-90}{\degree} phase shift. Therefore, we have to shift the
+crossover frequency far below $\frac{f_s}{2}$ to achieve the specified
+phase margin. This will result in lower performance of the controller in terms
+of control dynamics.
 
 The use of a more complex controller, like a PIDT2 with differential behaviour,
 tends to be more difficult to implement. This is especially true when 
 discontinuous conduction or very high duty cycles have to be considered as well,
 where the transfer function changes or non-ideal circuitry has a significant
-effect on the control.
+effect on the control loop.
 
 \clearpage
 \section{Choosing the controller parameters}
@@ -173,3 +174,10 @@ The empirically obtained parameters without significant overshoot are the follow
 		\end{tikzpicture}
 	\end{subfigure}
 \end{figure}
+
+By inspecting the bode plot of the controller transfer function, one can see,
+that the suggested controller is essentially an I controller, since the
+corner frequency is very close to the limit of $\frac{f_s}{2}$
+($\omega = \pi f_s$ in the plot). Therefore, the designed PI controller is
+essentially working as an I controller within the defined range of the power
+stage transfer function.
